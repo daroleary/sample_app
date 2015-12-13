@@ -8,7 +8,7 @@ describe StaticPagesController, :type => :controller do
       get :home
 
       expect(response.status).to eq(200)
-      expect(response.body).to have_content("Home | Ruby on Rails Tutorial Sample App")
+      expect(response.body).to have_selector('title', text: "Ruby on Rails Tutorial Sample App", visible: false)
     end
   end
 
@@ -17,7 +17,7 @@ describe StaticPagesController, :type => :controller do
       get :help
 
       expect(response.status).to eq(200)
-      expect(response.body).to have_content("Help | Ruby on Rails Tutorial Sample App")
+      expect(response.body).to have_selector('title', text: "Help | Ruby on Rails Tutorial Sample App", visible: false)
     end
   end
 
@@ -26,7 +26,7 @@ describe StaticPagesController, :type => :controller do
       get :about
 
       expect(response.status).to eq(200)
-      expect(response.body).to have_content("About | Ruby on Rails Tutorial Sample App")
+      expect(response.body).to have_selector('title', text: "About | Ruby on Rails Tutorial Sample App", visible: false)
     end
   end
 end
