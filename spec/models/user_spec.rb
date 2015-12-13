@@ -73,6 +73,13 @@ describe User, type: :model do
       expect(@user.valid?).to eql(false)
     end
 
+    it 'should be saved as lower-case' do
+      mixed_case_email = "Foo@ExAMPle.CoM"
+      @user.email = mixed_case_email
+      @user.save
+      expect(@user.reload.email).to eq(mixed_case_email.downcase)
+    end
+
     it 'should have a minimum length' do
       @user.password = @user.password_confirmation = "a" * 5
       expect(@user.valid?).to eql(false)
