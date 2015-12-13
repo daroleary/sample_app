@@ -29,4 +29,13 @@ describe StaticPagesController, :type => :controller do
       expect(response.body).to have_selector('title', text: "About | Ruby on Rails Tutorial Sample App", visible: false)
     end
   end
+
+  context '#contact' do
+    it 'should get contact' do
+      get :contact
+
+      expect(response.status).to eq(200)
+      expect(response.body).to have_selector('title', text: "Contact | Ruby on Rails Tutorial Sample App", visible: false)
+    end
+  end
 end
